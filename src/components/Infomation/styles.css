@@ -1,0 +1,39 @@
+section {
+  background-color: #000;
+  width: 60rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+  margin-top: -3.5rem;
+  margin-bottom: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+div {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container-input+.container-input {
+  margin-left: 1rem;
+}
+
+.span-green {
+  color: 	#008000;
+}
+.span-red {
+  color: #FF0000;
+}
+
+.info-values p {
+  margin-bottom: 0.5rem;
+}

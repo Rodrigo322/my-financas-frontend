@@ -1,0 +1,25 @@
+.container-infoTable {
+  background-color: #000;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 2rem;
+  width: 60rem;
+}
+
+table thead tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+table tbody tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+table tbody tr {
+  padding: 0.5rem;
+}

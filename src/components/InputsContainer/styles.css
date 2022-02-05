@@ -1,0 +1,24 @@
+.inputs-container {
+  background-color: #000;
+  width: 60rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+  margin-top: 0.1rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  background-color: #008000;
+  color: #fff;
+  padding: 3px 5px;
+  width: 130px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  height: 1.7rem;
+}

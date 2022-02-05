@@ -1,0 +1,16 @@
+header {
+  background-color: #111;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 10rem;
+}
+
+h2 {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-top: -2rem;
+}
