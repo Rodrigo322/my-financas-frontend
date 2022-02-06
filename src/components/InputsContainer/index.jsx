@@ -1,57 +1,59 @@
 import { Alert } from '@mui/material';
 import { useState } from "react";
+import { api } from '../../services/api';
 
 import "./styles.css";
 
 export const InputsContainer = ({ addItens }) => {
-  const [date, setDate] = useState("");
-  const [category, setCategory] = useState("");
-  const [title, setTitle] = useState("");
-  const [value, setValue] = useState("");
+  const [data, setData] = useState("");
+  const [categoria_id, setCategoriaId] = useState("");
+  const [titulo, setTitulo] = useState("");
+  const [valor, setValor] = useState("");
 
   function handleAddItensTable() {
-    const data = {
-      date,
-      category,
-      title,
-      value,
+    // let dataFormatada = data.split('-').reverse().join('-');
+    const dados = {
+      data,
+      categoria_id,
+      titulo,
+      valor
     };
-    if (data.date === "") {
+    if (dados.data === "") {
       alert("O campo data não pode ser vazio!");
     }
-    if (data.category === "") {
+    if (dados.categoria_id === "") {
       alert("O campo categoria não pode ser vazio!");
     }
-    if (data.title === "") {
+    if (dados.titulo === "") {
       alert("O campo titulo não pode ser vazio!");
     }
-    if (data.value === "") {
+    if (dados.valor === "") {
       alert("O campo titulo não pode ser vazio!");
     } else {
       addItens({
-        data,
+        dados,
       });
       handleClearValuesButtons();
     }
   }
 
   function handleClearValuesButtons() {
-    setCategory("");
-    setDate("");
-    setValue("");
-    setTitle("");
+    setCategoriaId("");
+    setData("");
+    setValor("");
+    setTitulo("");
   }
 
   return (
-    
+
     <section className="inputs-container">
       <div className="container-input">
         <label htmlFor="date">Data</label>
         <input
           type="date"
           name="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
+          value={data}
+          onChange={(e) => setData(e.target.value)}
         />
       </div>
 
@@ -60,8 +62,8 @@ export const InputsContainer = ({ addItens }) => {
         <input
           type="text"
           name="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={categoria_id}
+          onChange={(e) => setCategoriaId(e.target.value)}
         />
       </div>
 
@@ -70,8 +72,8 @@ export const InputsContainer = ({ addItens }) => {
         <input
           type="text"
           name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={titulo}
+          onChange={(e) => setTitulo(e.target.value)}
         />
       </div>
 
@@ -80,8 +82,8 @@ export const InputsContainer = ({ addItens }) => {
         <input
           type="number"
           name="value"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={valor}
+          onChange={(e) => setValor(e.target.value)}
         />
       </div>
 

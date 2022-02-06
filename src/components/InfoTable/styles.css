@@ -4,22 +4,29 @@
   margin-top: 0.5rem;
   padding: 2rem;
   width: 60rem;
-}
 
-table thead tr {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
 }
 
+.container-infoTable thead {
+  width: 100%; 
+}
 
+.container-infoTable thead tr {
+ display: flex;
+ justify-content: space-around;
+}
 
-table tbody tr {
+.container-infoTable tbody {
+  width: 100%;
+}
+
+.container-infoTable tbody tr {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+ justify-content: space-around;
 }
 
-table tbody tr {
-  padding: 0.5rem;
+.container-infoTable tbody tr td {
+  margin-left: 0.5rem;
 }

@@ -1,12 +1,16 @@
-export const TableItem = ({date, category, title, value}) => {
+export const TableItem = ({ data, categoria_id, titulo, valor, Categorium }) => {
+  let dataFormatada = data.split('-').reverse().join('-');
+
   return (
     <tr>
-      <td>{date}</td>
-      <td style={{ background: "#008000", borderRadius: 2, padding: 2.5 }}>
-       {category}
+      <td>{dataFormatada}</td>
+      <td>
+        {categoria_id}
       </td>
-      <td>{title}</td>
-      <td style={{ color: "#008000" }}>R$ {value}</td>
+      <td>{Categorium}</td>
+
+      <td>{titulo}</td>
+      <td>R${valor}</td>
     </tr>
   );
 };

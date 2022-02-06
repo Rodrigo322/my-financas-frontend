@@ -1,7 +1,10 @@
+import { useEffect, useState } from "react";
 import { TableItem } from "../TableItem";
 import "./styles.css";
+import {api} from '../../services/api'
 
-export const InfoTable = ({ list }) => {
+export const InfoTable = ({list}) => {
+
   return (
     <table className="container-infoTable">
       <thead>
@@ -16,10 +19,10 @@ export const InfoTable = ({ list }) => {
         {list.map((item, index) => (
           <TableItem
             key={index}
-            date={item.data.date}
-            category={item.data.category}
-            title={item.data.title}
-            value={item.data.value}
+            data={item.data}
+            categoria_id={item.Categorium.descricao}
+            titulo={item.titulo}
+            valor={item.valor}
           />
         ))}
       </tbody>
