@@ -1,6 +1,6 @@
-import { Alert } from '@mui/material';
+import { useEffect } from "react";
 import { useState } from "react";
-import { api } from '../../services/api';
+import { api } from "../../services/api";
 
 import "./styles.css";
 
@@ -10,8 +10,15 @@ export const InputsContainer = ({ addItens }) => {
   const [titulo, setTitulo] = useState("");
   const [valor, setValor] = useState("");
 
+  const [nameCategoria, setNameCategoria] = useState([])
+
+  useEffect(() => {
+    api.get('/listar/categoria/0').then(response => {
+      setNameCategoria(response.data.rows)
+    })
+  }, [])
+
   function handleAddItensTable() {
-    // let dataFormatada = data.split('-').reverse().join('-');
     const dados = {
       data,
       categoria_id,
@@ -20,9 +27,6 @@ export const InputsContainer = ({ addItens }) => {
     };
     if (dados.data === "") {
       alert("O campo data não pode ser vazio!");
-    }
-    if (dados.categoria_id === "") {
-      alert("O campo categoria não pode ser vazio!");
     }
     if (dados.titulo === "") {
       alert("O campo titulo não pode ser vazio!");
@@ -59,12 +63,22 @@ export const InputsContainer = ({ addItens }) => {
 
       <div className="container-input">
         <label htmlFor="category">Categoria</label>
-        <input
+        {/* <input
           type="text"
           name="category"
           value={categoria_id}
           onChange={(e) => setCategoriaId(e.target.value)}
-        />
+        /> */}
+        <select
+          name="category"
+          id="category"
+          value={categoria_id}
+          onChange={e => setCategoriaId(e.target.value)}
+        >
+          {nameCategoria.map((item) => (
+            <option key={item.id} value={item.id}>{item.descricao}</option>
+          ))}
+        </select>
       </div>
 
       <div className="container-input">

@@ -22,3 +22,13 @@ input {
   height: 1.2rem;
   margin-top: 0.5rem;
 }
+
+select {
+  border-radius: 5px;
+  width: 140px;
+  height: 1.8rem;
+  margin-top: 0.5rem;
+  background-color: #fff;
+  padding: 3px 5px;
+  font-weight: bold;
+}

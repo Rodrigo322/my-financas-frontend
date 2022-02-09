@@ -1,16 +1,18 @@
-export const TableItem = ({ data, categoria_id, titulo, valor, Categorium }) => {
+import { TableCell, TableRow } from "@mui/material";
+
+export const TableItem = ({ data, categoria_id, titulo, valor }) => {
   let dataFormatada = data.split('-').reverse().join('-');
-
   return (
-    <tr>
-      <td>{dataFormatada}</td>
-      <td>
-        {categoria_id}
-      </td>
-      <td>{Categorium}</td>
-
-      <td>{titulo}</td>
-      <td>R${valor}</td>
-    </tr>
+    <TableRow>
+      <TableCell sx={{color: '#fff'}} align="center">{dataFormatada}</TableCell>
+      <TableCell 
+        sx={{color: '#fff',width: 10, height: 1}} 
+        style={categoria_id === 'Ganho' ? {color: '#008000'} : {color: 'red'} } 
+        align="center">
+          {categoria_id}
+      </TableCell>
+      <TableCell sx={{color: '#fff'}} align="center">{titulo}</TableCell>
+      <TableCell sx={categoria_id === 'Ganho' ? {color: '#008000'} : {color: 'red'}} align="center">R$ {valor},00</TableCell>
+    </TableRow>
   );
 };

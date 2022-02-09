@@ -2,31 +2,5 @@
   background-color: #000;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
-  padding: 2rem;
   width: 60rem;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.container-infoTable thead {
-  width: 100%; 
-}
-
-.container-infoTable thead tr {
- display: flex;
- justify-content: space-around;
-}
-
-.container-infoTable tbody {
-  width: 100%;
-}
-
-.container-infoTable tbody tr {
-  display: flex;
- justify-content: space-around;
-}
-
-.container-infoTable tbody tr td {
-  margin-left: 0.5rem;
 }

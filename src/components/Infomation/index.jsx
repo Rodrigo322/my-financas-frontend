@@ -1,18 +1,36 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { api } from "../../services/api";
+import { useContext, useState } from "react";
 import "./styles.css";
 
-export const Information = () => {
+import { api } from '../../services/api'
+
+import InfoFinancaContext from "../../context/context";
+
+export const Information = ({ onSeach }) => {
   const [dataInicial, setDataInicial] = useState('')
   const [dataFinal, setDataFinal] = useState('')
 
-  console.log(dataInicial, dataFinal)
-  useEffect(() => {
-    api.get(`/listar/financa/dataInicial/${dataInicial}/dataFinal/${dataInicial}/page/0`).then(response => {
-      console.log(response)
+
+  const [ganho, setGanho] = useState(0)
+  const [dispesas, setDispesas] = useState(0)
+  const [balanco, setBalanco] = useState(0)
+
+  const { list } = useContext(InfoFinancaContext)
+
+    list.map((financa) => {
+      api.get(`/pesquisar/financa/categoria_id/${financa.categoria_id}`).then(response => {
+        if (response.data.Categoria.descricao === 'Ganho') {
+          setGanho(response.data.saldo)
+        }
+        if (response.data.Categoria.descricao === 'Dispesas') {
+          setDispesas(response.data.saldo)
+        }
+        setBalanco(ganho - dispesas)
+      })
     })
-  }, [setDataFinal])
+
+  function handleSeachFinance() {
+    onSeach({ dataInicial, dataFinal })
+  }
 
   return (
     <section>
@@ -36,21 +54,24 @@ export const Information = () => {
             onChange={(e) => setDataFinal(e.target.value)}
           />
         </div>
+        <div className="container-input">
+          <button onClick={handleSeachFinance}>Buscar</button>
+        </div>
       </div>
 
       <div className="info-values">
         <p>Receita</p>
-        <span className="span-green">R$ 3500</span>
+        <span className="span-green">R$ {ganho}</span>
       </div>
 
       <div className="info-values">
         <p>Dispesas</p>
-        <span className="span-red">R$ 500</span>
+        <span className="span-red">R$ {dispesas}</span>
       </div>
 
       <div className="info-values">
         <p>Balanço</p>
-        <span className="span-green">R$ 3000</span>
+        <span className="span-green">R$ {balanco}</span>
       </div>
     </section>
   );
